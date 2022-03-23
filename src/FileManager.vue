@@ -3,7 +3,7 @@
        v-bind:class="{ 'fm-full-screen': fullScreen }">
     <navbar/>
     <!--  dlimits edits start -->
-    <input class="search-input" type="search" v-model="search" @keyup="fileManagerSearch" placeholder="Search here..."/>
+    <input class="search-input" type="text" v-model="search" @change="fileManagerSearch" placeholder="Search here..."/>
     <!--  dlimits edits end  -->
 
     <div class="fm-body">
