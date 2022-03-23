@@ -1,23 +1,39 @@
 module.exports = {
-    env: {
-        browser: true,
-        es2021: true,
-    },
-    extends: ['plugin:vue/essential', 'airbnb-base', 'prettier'],
-    parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-    },
-    plugins: ['vue', 'prettier'],
-    rules: {
-        'prettier/prettier': 'error',
-        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-        'no-param-reassign': [
-            'error',
-            {
-                props: true,
-                ignorePropertyModificationsFor: ['state'],
-            },
+  root: true,
+  env: {
+    node: true,
+  },
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+  ],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        'props': true,
+        'ignorePropertyModificationsFor': [
+          'state',
+          'acc',
+          'e',
+          'ctx',
+          'req',
+          'request',
+          'res',
+          'response',
+          '$scope',
         ],
-    },
+      },
+    ],
+    'max-len': 'off',
+    'vue/no-use-v-if-with-v-for': [
+      'error', {
+        'allowUsingIterationVar': true,
+      }],
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
 };
