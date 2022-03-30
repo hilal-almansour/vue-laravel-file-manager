@@ -237,7 +237,10 @@ export default {
     fileManagerSearch() {
       const manager = this.activatedManager();
       const disk = this.selectedDisk();
-      const path = '';
+      let path = '';
+      if (this.selectedDirectory()) {
+        path = this.selectedDirectory();
+      }
       const { search } = this;
       this.$store.dispatch('fm/getSearchContent', {
         manager, disk, path, search,
@@ -257,6 +260,9 @@ export default {
      */
     selectedDisk() {
       return this.$store.state.fm[this.activatedManager()].selectedDisk;
+    },
+    selectedDirectory() {
+      return this.$store.state.fm[this.activatedManager()].selectedDirectory;
     },
     // dlimits edits end
   },
